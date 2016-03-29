@@ -1,3 +1,5 @@
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 module Chapter11 ( Goats(..)
                  , tooMany
                  ) where
@@ -8,12 +10,12 @@ class TooMany a where
 instance TooMany Int where
   tooMany n = n > 42
 
-newtype Goats = Goats Int deriving (Eq, Show)
+newtype Goats = Goats Int deriving (Eq, Show, TooMany)
 
 -- this will do the same thing as the
 -- Int instance, but we still have to
 -- define it separately
-instance TooMany Goats where
-  tooMany (Goats n) = tooMany n
+--instance TooMany Goats where
+--  tooMany (Goats n) = tooMany n
 
 
