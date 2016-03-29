@@ -11,7 +11,7 @@ class TooMany a where
 instance TooMany Int where
   tooMany n = n > 42
 
-newtype Goats = Goats Int deriving (Eq, Show, TooMany)
+newtype Goats = Goats Int deriving (Eq, Show, Num, TooMany)
 
 -- this will do the same thing as the
 -- Int instance, but we still have to
@@ -26,3 +26,7 @@ instance TooMany (Int, String) where
 -- section 11.7, exercise 2
 instance TooMany (Int, Int) where
   tooMany (n, m) = n + m > 42
+
+-- section 11.7, exercise 3
+instance (Num a, TooMany a) => TooMany (a, a) where
+  tooMany (x, y) = tooMany (x + y)
