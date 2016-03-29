@@ -22,3 +22,7 @@ newtype Goats = Goats Int deriving (Eq, Show, TooMany)
 -- section 11.7, exercise 1
 instance TooMany (Int, String) where
   tooMany (n, s) = n + (length s) > 42
+
+-- section 11.7, exercise 2
+instance TooMany (Int, Int) where
+  tooMany (n, m) = n + m > 42
