@@ -1,4 +1,5 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances #-}
 
 module Chapter11 ( Goats(..)
                  , tooMany
@@ -18,4 +19,6 @@ newtype Goats = Goats Int deriving (Eq, Show, TooMany)
 --instance TooMany Goats where
 --  tooMany (Goats n) = tooMany n
 
-
+-- section 11.7, exercise 1
+instance TooMany (Int, String) where
+  tooMany (n, s) = n + (length s) > 42
