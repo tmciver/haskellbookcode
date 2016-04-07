@@ -15,6 +15,7 @@ module Chapter11 ( Goats(..)
                  , SheepInfo(..)
                  , Animal(..)
                  , Animal'
+                 , mapOkay
                  ) where
 
 class TooMany a where
@@ -86,7 +87,7 @@ data BinaryTree a = Leaf
 -- Retain the original structure of the tree.
 mapTree :: (a -> b) -> BinaryTree a -> BinaryTree b
 mapTree _ Leaf = Leaf
-mapTree f (Node left a right) = Node undefined undefined undefined
+mapTree f (Node left a right) = Node (mapTree f left) (f a) (mapTree f right)
 
 testTree' :: BinaryTree Integer
 testTree' = Node (Node Leaf 3 Leaf) 1 (Node Leaf 4 Leaf)
