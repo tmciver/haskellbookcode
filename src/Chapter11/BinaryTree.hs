@@ -16,8 +16,40 @@ testTree' = Node (Node Leaf 3 Leaf) 1 (Node Leaf 4 Leaf)
 
 mapExpected = Node (Node Leaf 4 Leaf) 2 (Node Leaf 5 Leaf)
 
-main :: IO ()
-main = if mapTree (+1) testTree' == mapExpected
-          then print "yup okay!"
-          else error "test failed!"
+-- main :: IO ()
+-- main = if mapTree (+1) testTree' == mapExpected
+--           then print "yup okay!"
+--           else error "test failed!"
 
+preorder :: BinaryTree a -> [a]
+preorder = undefined
+
+inorder :: BinaryTree a -> [a]
+inorder = undefined
+
+postorder :: BinaryTree a -> [a]
+postorder = undefined
+
+testTree :: BinaryTree Integer
+testTree = Node (Node Leaf 1 Leaf) 2 (Node Leaf 3 Leaf)
+
+testPreorder :: IO ()
+testPreorder = if preorder testTree == [2, 1, 3]
+               then putStrLn "Preorder fine!"
+               else putStrLn "Bad news bears."
+
+testInorder :: IO ()
+testInorder = if inorder testTree == [1, 2, 3]
+              then putStrLn "Inorder fine!"
+              else putStrLn "Bad news bears."
+
+testPostorder :: IO ()
+testPostorder = if postorder testTree == [1, 3, 2]
+                then putStrLn "Postorder fine!"
+                else putStrLn "postorder failed check"
+
+main :: IO ()
+main = do
+  testPreorder
+  testInorder
+  testPostorder
