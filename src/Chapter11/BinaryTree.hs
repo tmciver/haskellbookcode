@@ -22,13 +22,16 @@ mapExpected = Node (Node Leaf 4 Leaf) 2 (Node Leaf 5 Leaf)
 --           else error "test failed!"
 
 preorder :: BinaryTree a -> [a]
-preorder = undefined
+preorder Leaf = []
+preorder (Node l x r) = [x] ++ preorder l ++ preorder r
 
 inorder :: BinaryTree a -> [a]
-inorder = undefined
+inorder Leaf = []
+inorder (Node l x r) = preorder l ++ [x] ++ preorder r
 
 postorder :: BinaryTree a -> [a]
-postorder = undefined
+postorder Leaf = []
+postorder (Node l x r) = preorder l ++ preorder r ++ [x]
 
 testTree :: BinaryTree Integer
 testTree = Node (Node Leaf 1 Leaf) 2 (Node Leaf 3 Leaf)
