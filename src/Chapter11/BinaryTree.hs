@@ -51,8 +51,15 @@ testPostorder = if postorder testTree == [1, 3, 2]
                 then putStrLn "Postorder fine!"
                 else putStrLn "postorder failed check"
 
-main :: IO ()
-main = do
-  testPreorder
-  testInorder
-  testPostorder
+-- main :: IO ()
+-- main = do
+--   testPreorder
+--   testInorder
+--   testPostorder
+
+-- any traversal order is fine
+foldTree :: (a -> b -> b) -> b -> BinaryTree a -> b
+foldTree _ z Leaf = z
+foldTree f z (Node l x r) = foldTree f z'' r
+  where z'' = f x z'
+        z' = foldTree f z l
