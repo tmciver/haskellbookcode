@@ -63,3 +63,7 @@ foldTree _ z Leaf = z
 foldTree f z (Node l x r) = foldTree f z'' r
   where z'' = f x z'
         z' = foldTree f z l
+
+-- rewrite `mapTree` using `foldTree`
+mapTree' :: (a -> b) -> BinaryTree a -> BinaryTree b
+mapTree' f bt = foldTree undefined undefined undefined
