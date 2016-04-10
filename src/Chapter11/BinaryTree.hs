@@ -17,7 +17,8 @@ testTree' = Node (Node Leaf 3 Leaf) 1 (Node Leaf 4 Leaf)
 mapExpected = Node (Node Leaf 4 Leaf) 2 (Node Leaf 5 Leaf)
 
 main :: IO ()
-main = print $ show $ mapTree' (+1) testTree
+main = do print testTree
+          print $ mapTree' (+1) testTree
 -- main = if mapTree' (+1) testTree' == mapExpected
 --           then print "yup okay!"
 --           else error "test failed!"
@@ -59,18 +60,17 @@ testPostorder = if postorder testTree == [1, 3, 2]
 --   testPostorder
 
 -- any traversal order is fine (I've chose inorder traversal here)
-foldTree :: (a -> b -> b) -> b -> BinaryTree a -> b
+foldTree :: (b -> a -> b -> b) -> b -> BinaryTree a -> b
 foldTree _ z Leaf = z
-foldTree f z (Node l x r) = foldTree f z'' r
-  where z'' = f x z'
-        z' = foldTree f z l
+foldTree f z (Node l x r) = f bl x br
+  where bl = foldTree f z l
+        br = foldTree f z r
 
 -- rewrite `mapTree` using `foldTree`
 mapTree' :: (a -> b) -> BinaryTree a -> BinaryTree b
 mapTree' f bt = foldTree g Leaf bt
-  where --g :: a1 -> BinaryTree b1 -> BinaryTree b1
-        g x Leaf = Node Leaf (f x) Leaf
-        g x t = Node t (f x) Leaf
+  where --g :: BinaryTree b1 -> a1 -> BinaryTree b1 -> BinaryTree b1
+        g l x r = Node l (f x) r
 
 -- main :: IO ()
 -- main = print $ foldTree (+) 0 testTree'
