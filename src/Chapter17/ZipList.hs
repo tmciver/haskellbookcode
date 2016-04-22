@@ -10,13 +10,20 @@ take' 0 _ = Nil
 take' _ Nil = Nil
 take' n (Cons x l) = Cons x (take' (n-1) l)
 
+concat' :: List a -> List a -> List a
+concat' xs Nil = xs
+concat' Nil ys = ys
+concat' (Cons x xs) ys = Cons x (concat' xs ys)
+
 instance Functor List where
   fmap _ Nil = Nil
   fmap f (Cons x xs) = Cons (f x) (fmap f xs)
 
 instance Applicative List where
-  pure = undefined
-  (<*>) = undefined
+  pure x = Cons x Nil
+  _ <*> Nil = Nil
+  Nil <*> _ = Nil
+  (Cons f fs) <*> xs = concat' (fmap f xs) (fs <*> xs)
 
 newtype ZipList' a = ZipList' (List a)
                    deriving (Eq, Show)
