@@ -11,7 +11,8 @@ take' _ Nil = Nil
 take' n (Cons x l) = Cons x (take' (n-1) l)
 
 instance Functor List where
-  fmap = undefined
+  fmap _ Nil = Nil
+  fmap f (Cons x xs) = Cons (f x) (fmap f xs)
 
 instance Applicative List where
   pure = undefined
