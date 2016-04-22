@@ -6,7 +6,9 @@ data List a = Nil | Cons a (List a)
             deriving (Eq, Show)
 
 take' :: Int -> List a -> List a
-take' = undefined
+take' 0 _ = Nil
+take' _ Nil = Nil
+take' n (Cons x l) = Cons x (take' (n-1) l)
 
 instance Functor List where
   fmap = undefined
