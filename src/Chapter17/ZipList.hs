@@ -39,5 +39,5 @@ instance Functor ZipList' where
   fmap f (ZipList' xs) = ZipList' $ fmap f xs
 
 instance Applicative ZipList' where
-  pure = undefined
-  (<*>) = undefined
+  pure x = ZipList' (Cons x Nil)
+  (ZipList' fs) <*> (ZipList' xs) = ZipList' (fs <*> xs)
