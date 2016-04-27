@@ -15,6 +15,9 @@ concat' xs Nil = xs
 concat' Nil ys = ys
 concat' (Cons x xs) ys = Cons x (concat' xs ys)
 
+repeat' :: a -> List a
+repeat' x = Cons x (repeat' x)
+
 instance Functor List where
   fmap _ Nil = Nil
   fmap f (Cons x xs) = Cons (f x) (fmap f xs)
@@ -39,7 +42,7 @@ instance Functor ZipList' where
   fmap f (ZipList' xs) = ZipList' $ fmap f xs
 
 instance Applicative ZipList' where
-  pure x = ZipList' (Cons x Nil)
+  pure x = ZipList' (repeat' x)
   ZipList' Nil <*> _ = ZipList' Nil
   _ <*> ZipList' Nil = ZipList' Nil
   (ZipList' (Cons f fs)) <*> (ZipList' (Cons x xs)) = ZipList' (Cons (f x) theRest)
