@@ -40,4 +40,7 @@ instance Functor ZipList' where
 
 instance Applicative ZipList' where
   pure x = ZipList' (Cons x Nil)
-  (ZipList' fs) <*> (ZipList' xs) = ZipList' (fs <*> xs)
+  ZipList' Nil <*> _ = ZipList' Nil
+  _ <*> ZipList' Nil = ZipList' Nil
+  (ZipList' (Cons f fs)) <*> (ZipList' (Cons x xs)) = ZipList' (Cons (f x) theRest)
+    where theRest = let ZipList' l = ZipList' fs <*> ZipList' xs in l
