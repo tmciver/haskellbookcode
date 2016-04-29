@@ -20,6 +20,7 @@ library
                      , Chapter11.BinaryTree
                      , Chapter17.TypeCheck
                      , Chapter17.ZipList
+                     , Chapter18.Bind
                      , Misc
   build-depends:       base >= 4.7 && < 5
                      , checkers == 0.4.4
