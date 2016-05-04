@@ -23,6 +23,7 @@ library
                      , Chapter18.Bind
                      , Chapter18.DoSomething
                      , Chapter18.EighteenPointSeven
+                     , Chapter25.TwinPlicative
                      , Misc
   build-depends:       base >= 4.7 && < 5
   default-language:    Haskell2010
