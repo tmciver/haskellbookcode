@@ -9,4 +9,4 @@ instance Arbitrary (Nope a) where
   arbitrary = return NopeDotJpg
 
 -- I still need to figure out exactly why I needed to specify a 3-tuple here . . .
-x = quickBatch (monad (NopeDotJpg :: Nope (String, Char, Char)))
+main = quickBatch (monad (NopeDotJpg :: Nope (String, Char, Char)))
