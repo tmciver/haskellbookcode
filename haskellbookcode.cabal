@@ -18,6 +18,7 @@ library
   exposed-modules:     Lib
                      , Chapter11
                      , Chapter11.BinaryTree
+                     , Chapter15.Optional
                      , Chapter17.TypeCheck
                      , Chapter17.ZipList
                      , Chapter18.Bind
