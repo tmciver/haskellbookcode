@@ -5,7 +5,7 @@ data Optional a = Nada
                 deriving (Eq, Show)
 
 instance Monoid a => Monoid (Optional a) where
-  mempty = Only mempty
+  mempty = Nada
   Nada `mappend` other = other
   other `mappend` Nada = other
   Only a `mappend` Only b = Only $ a `mappend` b
