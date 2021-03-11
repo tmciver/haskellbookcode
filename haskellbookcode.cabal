@@ -21,6 +21,7 @@ library
                      , Chapter9.SquareCube
                      , Chapter9.MoreBottoms
                      , Chapter9.Filtering
+                     , Chapter9.Zipping
                      , Chapter11
                      , Chapter11.BinaryTree
                      , Chapter15.Optional
