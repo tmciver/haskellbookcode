@@ -17,6 +17,7 @@ library
   hs-source-dirs:      src
   exposed-modules:     Lib
                      , Chapter9.EnumFromTo
+                     , Chapter9.ThyFearfulSymmetry
                      , Chapter11
                      , Chapter11.BinaryTree
                      , Chapter15.Optional
