@@ -18,6 +18,7 @@ library
   exposed-modules:     Lib
                      , Chapter9.EnumFromTo
                      , Chapter9.ThyFearfulSymmetry
+                     , Chapter9.SquareCube
                      , Chapter11
                      , Chapter11.BinaryTree
                      , Chapter15.Optional
