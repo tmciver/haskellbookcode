@@ -19,6 +19,7 @@ library
                      , Chapter9.EnumFromTo
                      , Chapter9.ThyFearfulSymmetry
                      , Chapter9.SquareCube
+                     , Chapter9.MoreBottoms
                      , Chapter11
                      , Chapter11.BinaryTree
                      , Chapter15.Optional
