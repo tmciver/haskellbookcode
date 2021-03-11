@@ -20,6 +20,7 @@ library
                      , Chapter9.ThyFearfulSymmetry
                      , Chapter9.SquareCube
                      , Chapter9.MoreBottoms
+                     , Chapter9.Filtering
                      , Chapter11
                      , Chapter11.BinaryTree
                      , Chapter15.Optional
