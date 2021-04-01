@@ -28,6 +28,11 @@ data Card = Card Suit Value
           | Joker2
   deriving (Eq, Show)
 
+showCard :: Card -> String
+showCard (Card suit value) = show value ++ " of " ++ show suit
+showCard Joker1 = "First Joker"
+showCard Joker2 = "Second Joker"
+
 --data Deck = Deck [Card]
 type Deck = [Card]
 
