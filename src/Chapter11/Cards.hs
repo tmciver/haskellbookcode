@@ -24,10 +24,12 @@ data Value =
   deriving (Eq, Show, Enum)
 
 data Card = Card Suit Value
+          | Joker1
+          | Joker2
   deriving (Eq, Show)
 
 --data Deck = Deck [Card]
 type Deck = [Card]
 
 sortedDeck :: Deck
-sortedDeck = [Card suit val | suit <- enumFrom Hearts, val <- enumFrom Two]
+sortedDeck = Joker1 : Joker2 : [Card suit val | suit <- enumFrom Hearts, val <- enumFrom Two]
