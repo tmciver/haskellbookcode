@@ -24,6 +24,7 @@ library
                      , Chapter9.Zipping
                      , Chapter11
                      , Chapter11.BinaryTree
+                     , Chapter12.Exercises
                      , Chapter15.Optional
                      , Chapter17.TypeCheck
                      , Chapter17.ZipList
