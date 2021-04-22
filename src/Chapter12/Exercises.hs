@@ -31,3 +31,14 @@ flipMaybe = foldr f (Just [])
   where f Nothing _ = Nothing
         f (Just x) maybeXs = (x:) <$> maybeXs
 
+-------------------------------------
+-- Write your own iterate and unfoldr
+-------------------------------------
+myUnfoldr :: (b -> Maybe (a, b)) -> b -> [a]
+-- myUnfoldr f x = myUnfoldr' f x []
+--   where myUnfoldr' f x ys = case f x of
+--           Nothing -> ys
+--           Just (s, t) -> myUnfoldr' f t (s:ys)
+myUnfoldr f x = case f x of
+  Nothing -> []
+  Just (s, t) -> s:myUnfoldr f t
