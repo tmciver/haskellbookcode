@@ -31,6 +31,7 @@ library
                      , Chapter18.Bind
                      , Chapter18.DoSomething
                      , Chapter18.EighteenPointSeven
+                     , Chapter22.Reader
                      , Chapter25.TwinPlicative
                      , Misc
   build-depends:       base >= 4.7 && < 5
