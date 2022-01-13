@@ -31,3 +31,13 @@ instance Applicative (Reader r) where
     let ab = rab r
         a = ra r
     in ab a
+
+-- exercise: Reader Monad
+instance Monad (Reader r) where
+  return = pure
+
+  (>>=) :: Reader r a -> (a -> Reader r b) -> Reader r b
+  (Reader ra) >>= aRb = Reader $ \r ->
+    let a = ra r
+        Reader rb = aRb a
+    in rb r
