@@ -1,6 +1,6 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
-module Chapter22.ReaderNewType where
+
+module Chapter22.ReaderTypeAlias2 where
 
 
 main :: IO ()
@@ -15,27 +15,21 @@ data Environment = Environment
   , param3 :: String
   } deriving Show
 
---newtype Reader r a = Reader (r -> a)
-newtype Reader r a = Reader { runReader :: r -> a }
-  deriving (Functor, Applicative, Monad)
+type Reader r a = r -> a
+
+runReader :: Reader r a -> r -> a
+runReader f x = f x
 
 ask :: Reader r r
-ask = Reader id
--- ask = Reader (\r -> r)
-
-asks :: (r -> a) -> Reader r a
-asks = Reader -- (\r -> f r)
+ask = \r -> r
+-- ask = id
 
 loadEnv :: IO Environment
 loadEnv = pure (Environment "portland" "functional" "programming")
 
 func1 :: Reader Environment String
-func1 = do
-  p1 <- asks param1
-  return p1
-  -- fmap f func2
-  -- where f i = "Result: " ++ show i
-
+func1 = fmap f func2
+  where f i = "Result: " ++ show i
 
 func2 :: Reader Environment Int
 func2 = fmap f func3
