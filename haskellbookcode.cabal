@@ -37,10 +37,15 @@ library
                      , Chapter23.StackCalc1
                      , Chapter23.StackCalc2
                      , Chapter24.Exercises
+                     , Chapter24.ConfigParser
                      , Chapter25.TwinPlicative
                      , Misc
   build-depends:       base >= 4.7 && < 5
+                     , bytestring
+                     , containers
                      , exceptions
+                     , raw-strings-qq
+                     , text
                      , transformers
                      , trifecta
                      , QuickCheck
