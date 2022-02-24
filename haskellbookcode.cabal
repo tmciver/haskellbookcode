@@ -36,11 +36,13 @@ library
                      , Chapter22.Reader
                      , Chapter23.StackCalc1
                      , Chapter23.StackCalc2
+                     , Chapter24.Exercise1
                      , Chapter25.TwinPlicative
                      , Misc
   build-depends:       base >= 4.7 && < 5
                      , exceptions
                      , transformers
+                     , trifecta
                      , QuickCheck
   default-language:    Haskell2010
 
