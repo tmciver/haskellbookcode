@@ -39,6 +39,7 @@ library
                      , Chapter24.Exercises
                      , Chapter24.ConfigParser
                      , Chapter24.UnitOfSuccess
+                     , Chapter24.FractionParser
                      , Chapter25.TwinPlicative
                      , Misc
   build-depends:       base >= 4.7 && < 5
