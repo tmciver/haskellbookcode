@@ -38,6 +38,7 @@ library
                      , Chapter23.StackCalc2
                      , Chapter24.Exercises
                      , Chapter24.ConfigParser
+                     , Chapter24.UnitOfSuccess
                      , Chapter25.TwinPlicative
                      , Misc
   build-depends:       base >= 4.7 && < 5
