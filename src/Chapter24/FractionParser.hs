@@ -1,7 +1,7 @@
 module Chapter24.FractionParser where
 
 import Text.Trifecta
-import Data.Ratio
+import Data.Ratio (Rational, (%))
 
 badFraction = "1/0"
 alsoBad = "10"
@@ -43,3 +43,9 @@ testVirtuous = do
   print $ virtuousFraction' shouldAlsoWork
 
 -- demo
+
+p :: Parser Integer
+p = do
+  i <- integer
+  eof
+  return i

@@ -11,7 +11,7 @@ oneTwo :: Parser Char
 oneTwo = char '1' >> char '2'
 
 oneFail :: Parser Char
-oneFail = char '1' >> eof >> pure '1'
+oneFail = char '1' <* eof -- >> pure '1'
 
 oneTwoFail :: Parser Char
 oneTwoFail = char '1' >> char '2' >> eof >> pure '2'
@@ -20,5 +20,5 @@ oneTwoFail = char '1' >> char '2' >> eof >> pure '2'
 p123 :: Parser String
 p123 = choice [ try (string "1" <* eof)
               , try (string "12" <* eof)
-              , try (string "123" <* eof)
+              , (string "123" <* eof)
               ]
