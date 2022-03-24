@@ -51,6 +51,7 @@ library
                      , text
                      , transformers
                      , trifecta
+                     , parsers
                      , QuickCheck
   default-language:    Haskell2010
 
