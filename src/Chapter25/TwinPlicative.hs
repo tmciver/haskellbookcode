@@ -17,10 +17,5 @@ instance (Applicative f, Applicative g) => Applicative (Compose f g) where
   (<*>) :: Compose f g (a -> b)
         -> Compose f g a
         -> Compose f g b
---  (Compose f) <*> (Compose a) = Compose (fmap (\gab -> fmap (\ga -> gab <*> ga) a) f)
---  (Compose f) <*> (Compose a) = Compose ((fmap . fmap) (\g -> (fmap . fmap) g a) f)
--- came to the following working solution after some helpful hints from someone
--- (can't rememer who) on IRC.  Good thing too; I never would have gotten this
--- on my own. :(
 --  (Compose f) <*> (Compose a) = Compose $ fmap (<*>) f <*> a
   (Compose f) <*> (Compose a) = Compose $ liftA2 (<*>) f a
