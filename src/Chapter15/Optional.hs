@@ -14,3 +14,11 @@ instance Monoid a => Monoid (Optional a) where
   Nada `mappend` other = other
   other `mappend` Nada = other
   Only a `mappend` Only b = Only $ a `mappend` b
+
+instance Functor Optional where
+  fmap f (Only x) = Only (f x)
+  fmap _ Nada = Nada
+
+instance Applicative Optional where
+  Only f <*> Only x = Only (f x)
+  _ <*> _ = Nada
