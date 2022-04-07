@@ -2,6 +2,8 @@
 
 module Chapter25.TwinPlicative where
 
+import Control.Applicative (liftA2)
+
 newtype Compose f g a = Compose { getCompose :: f (g a) }
                       deriving (Eq, Show)
 
@@ -20,4 +22,5 @@ instance (Applicative f, Applicative g) => Applicative (Compose f g) where
 -- came to the following working solution after some helpful hints from someone
 -- (can't rememer who) on IRC.  Good thing too; I never would have gotten this
 -- on my own. :(
-  (Compose f) <*> (Compose a) = Compose $ fmap (<*>) f <*> a
+--  (Compose f) <*> (Compose a) = Compose $ fmap (<*>) f <*> a
+  (Compose f) <*> (Compose a) = Compose $ liftA2 (<*>) f a
